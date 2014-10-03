@@ -23,7 +23,7 @@
 		$postupwd = addslashes(trim($_POST['upwd']));
 		$postuemail = addslashes(trim($_POST['uemail']));
 	}
-//file_put_contents("D:/mylog.log",$postuname."  *********\r\n",FILE_APPEND);
+
 	function check_input($value){
 	
 		// 如果不是数字则加引号
@@ -37,9 +37,9 @@
 	$postuname = check_input($postuname);
 	$postupwd = check_input($postupwd);
 	$postuemail = check_input($postuemail);
-//file_put_contents("D:/mylog.log",$postuname."  *********\r\n",FILE_APPEND);
+
 	$sql = "insert into user(uname,upwd,uemail,activekey,regdate)values('".$postuname."','".md5($postupwd)."','".$postuemail."','".$key."','".time()."')";
-//file_put_contents("D:/mylog.log",$sql."  *********\r\n",FILE_APPEND);
+
 	$num = $conne->uidRst($sql);
 	if($num == 1){
 		
@@ -49,7 +49,7 @@
 		//urlencode函数转换url中的中文编码
 		//带反斜杠
 		$url.= '?name='.urlencode($postuname).'&k='.$key;
-//file_put_contents("D:/mylog.log",$url."  *********\r\n",FILE_APPEND);
+
 		//定义登录使用的邮箱
 		$envelope = 'dee1566@126.com';
 		$password = '密码';

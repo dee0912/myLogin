@@ -5,8 +5,6 @@ include_once 'Zend/Mail/Transport/Smtp.php';
 include_once 'Zend/Mail.php';
 include_once 'mail.class.php';
 
-file_put_contents("D:/mylog.log",$_GET[n]."   xxx\r\n",FILE_APPEND);
-file_put_contents("D:/mylog.log",urldecode($_GET[n])."   xxx\r\n",FILE_APPEND);
 if(isset($_GET['n']) && $_GET['n']!="" && isset($_GET['k']) && $_GET['k']!=""){
 
 	//过滤处理
@@ -19,14 +17,14 @@ if(isset($_GET['n']) && $_GET['n']!="" && isset($_GET['k']) && $_GET['k']!=""){
 		$n = $_GET['n'];
 		$k = $_GET['k'];
 	}
-file_put_contents("D:/mylog.log",$n."   xxx\r\n",FILE_APPEND);	
+
 	$table = "user";
 	//先查询记录
 	//addslashes($n) 因为使用了mysql_real_escape_string,所以存储在数据库中的是带转义的字符串
 	$sql = "select * from ".$table." where uname='".$n."' and activekey='".$k."'";
 	$rs = $conne->getRowsRst($sql);	
 	$rsuemail = $rs['uemail'];
-file_put_contents("D:/mylog.log",$sql."  xxx\r\n",FILE_APPEND);
+
 	$num = $conne->getRowsNum($sql);
 	if($num == 1){
 	
@@ -35,7 +33,7 @@ file_put_contents("D:/mylog.log",$sql."  xxx\r\n",FILE_APPEND);
 		$nowTime = time();
 		//update activekey和lockurl
 		$upnum = $conne->uidRst("update ".$table." set activekey = '".$key."' , lockurl=0,regdate = '".$nowTime."' where uname = '".$n."' and activekey = '".$k."'");
-file_put_contents("D:/mylog.log","update ".$table." set activekey = '".$key."' , lockurl=0,regdate = '".$nowTime."' where uname = '".$n."' and activekey = '".$k."'  xxx\r\n",FILE_APPEND);
+
 		if($upnum == 1){
 		
 			//插入成功时发送邮件
@@ -44,7 +42,7 @@ file_put_contents("D:/mylog.log","update ".$table." set activekey = '".$key."' ,
 			//urlencode函数转换url中的中文编码
 			//带反斜杠
 			$url.= '?name='.urlencode((trim($n))).'&k='.$key;
-file_put_contents("D:/mylog.log",$url."   xxx\r\n",FILE_APPEND);
+
 			//定义登录使用的邮箱
 			$envelope = 'dee1566@126.com';
 			$password = '密码';

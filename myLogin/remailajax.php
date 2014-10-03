@@ -34,7 +34,7 @@ if(isset($_POST['n']) && $_POST['n']!="" && isset($_POST['k']) && $_POST['k']!="
 	//激活邮件的主题和正文
 	$subject = '激活您的帐号';
 	$mailbody = '注册成功，<a href="'.$url.'" target="_blank">请点击此处激活帐号</a>';
-	//file_put_contents("D:/mylog.log",$url."  ~~~~~~".$m."~~~~~\r\n",FILE_APPEND);	
+
 	postmail($auth,$port,$envelope,$password,$smtp,$m,$subject,$mailbody);
 
 	echo 0;
