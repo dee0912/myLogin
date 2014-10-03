@@ -1,0 +1,172 @@
+#register{ 
+	
+	width:900px;
+	height:650px;
+	margin:50px auto 20px;
+	background-color:#fff;
+	padding-top:30px;
+	border:1px solid rgba(0,0,0,0.06);
+}
+
+.ipt{ margin:0px auto 30px 150px; width:850px; height:60px; }
+
+.fipt{ margin-top:40px;}
+
+#uname,#uemail,#upwd,#rupwd,#yzm{ 
+	
+	width:394px; 
+	height:54px; 
+	padding:0 25px 0;
+	font-size:22px;
+}
+
+#sub{
+
+	display: block;
+	width: 448px;
+	height: 50px;
+	line-height: 50px;
+	border: 0;
+	overflow: hidden;
+	text-align: center;
+	background: #69b3f2;
+	font-family: "Microsoft YaHei",\5fae\8f6f\96c5\9ed1,arial,\5b8b\4f53;
+	font-size: 26px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	margin:0 auto 0 150px;
+	cursor:pointer;
+}
+
+#sub:hover{ background: #7cbdf5;}
+#sub,#sub:hover{ color:#fff;}
+
+#unamechk{ margin-left:-4px;}
+#upwdchk{ margin-left:2px;}
+#rupwdchk{ margin-left:0px;}
+#yzmchk{ margin-left:-2px;}
+/**********************验证样式***********************/
+.notice,.error,.success,.loading{ padding-left:30px; display:inline-block;}
+.notice{
+	
+	color:#949494; 
+	background:url("../images/notice.png") 10px 3px no-repeat;
+}
+.error{ 
+	
+	color:#dd6f75; 
+	background:url("../images/error.png") 7px 3px no-repeat;
+}
+.success{
+	
+	color:#949494; 
+	background:url("../images/right.png") 10px 3px no-repeat;
+}
+.loading{
+
+	color:#949494;
+	background:url("../images/loading.gif") 10px 3px no-repeat;
+}
+
+/***********************邮箱下拉***************************/
+ul.autoul{  /* 下拉菜单 */
+
+    width:446px;
+    margin:0px;
+    margin-top:0px;
+    padding:0px;
+    color:#666;
+    border:1px solid #ccc;
+	background-color:#fff;
+    border-top:0;
+    overflow:hidden;
+	position:relative;
+	z-index:2;
+}
+ul.autoul li.autoli{  /* 下拉菜单li */
+
+    height:30px;
+    display:block;
+    list-style-type:none;
+    text-align:left;
+    cursor:pointer;
+    font-size:14px;
+    line-height:30px;
+    padding-left:27px;
+    padding-right:15px;
+    overflow:hidden;
+    /*当对象内文本溢出时显示省略标记*/
+    text-overflow:ellipsis; 
+}
+.lihover{  /* 下拉菜单li高亮样式 */
+
+    background-color:#69b3f2;
+	color:#fff;
+}
+span{ padding-right:2px;}/* li下文字 */
+.showli{ display:block;}/* 经过过滤的li的样式 */
+
+/*************************密码********************************/
+
+.upwdpic{
+
+	width:300px;
+	position:relative;
+	top:-45px;
+	left:446px;
+}
+
+/*大写锁定*/
+#upper{ 
+
+	width:100px; 
+	height:25px;
+	line-height:25PX;
+	background:yellow;
+	color:#dd6f75;
+	padding-left:15px;
+	margin-top:-22px;
+}
+
+/*密码强弱样式*/
+#pictie{
+
+	display:none;
+	position:absolute;
+	top:25px;
+	left:25px;
+}
+
+/***************************验证码*****************************/
+
+.iptend{ margin-bottom:50px; margin-top:-15px;}
+#yzmpic{
+
+	position:relative;
+	top:20px;
+	left:-215px;
+}
+
+#yzmchk{
+
+	position:relative;
+	top:0px;
+	right:225px;
+}
+
+#changea{
+
+	position:relative;
+	top:22px;
+	right:220px;
+}
+
+/*********************服务条款******************************/
+.fuwu{
+
+	display:block;
+	margin-top:10px;
+	margin-left:150px;
+	letter-spacing:1px;
+}
