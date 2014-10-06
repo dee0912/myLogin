@@ -49,7 +49,7 @@ if(isset($_GET['n']) && $_GET['n']!="" && isset($_GET['k']) && $_GET['k']!=""){
 
 			//定义登录使用的邮箱
 			$envelope = 'dee1566@126.com';
-			$password = 'wshd19870912';
+			$password = '密码';
 			$port = 25;
 			$auth = 'login';
 			$smtp = 'smtp.126.com';
