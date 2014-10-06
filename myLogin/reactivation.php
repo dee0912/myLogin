@@ -1,5 +1,8 @@
 <?php
-header("charst=utf-8");
+
+require_once 'init.inc.php';
+
+$smarty->assign("Template_Dir",Template_Dir);
 
 if(isset($_GET['n']) && $_GET['n']!="" && isset($_GET['k']) && $_GET['k']!=""){
 
@@ -14,14 +17,13 @@ if(isset($_GET['n']) && $_GET['n']!="" && isset($_GET['k']) && $_GET['k']!=""){
 		$k = $_GET['k'];
 	}
 
-	echo "<a href='remail.php?n=".urlencode($n)."&k=".urlencode($k)."'>重新收取激活邮件</a>";
+	
+	$smarty->assign("n",urlencode($n));
+	$smarty->assign("k",urlencode($k));
 
-	echo "<a href='register.php'>返回注册页</a>";
-
+	$smarty->display("reactivation_right.html");
 }else{
 
-	echo "<div id=\"textBox\">参数错误，请重新注册，<span id=\"second\"></span>  秒钟后跳转至注册页...</div>";
-	echo "<script src=\"templets/js/showTime.js\"></script>";			
-	echo "<script>var href='register.php';showTime(href);</script>";
+	$smarty->display("reactivation_wrong.html");
 }
-?>
+

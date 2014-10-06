@@ -1,0 +1,8 @@
+<div id="textBox">超过激活有效期，激活失败，<span id="second"></span>  秒钟后跳转至重新激活页...</div>
+
+<script src="<{$Template_Dir}>/js/showTime.js"></script>
+<script>
+
+	var href='<{$ROOT_URL}>reactivation.php?n=<{$n}>&k=<{$k}>';
+	showTime(href);
+</script>

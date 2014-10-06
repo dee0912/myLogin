@@ -4,6 +4,10 @@ include_once 'conn/conn.php';
 include_once 'Zend/Mail/Transport/Smtp.php';
 include_once 'Zend/Mail.php';
 include_once 'mail.class.php';
+require_once 'init.inc.php';
+
+$smarty->assign("Template_Dir",Template_Dir);
+$smarty->assign("ROOT_URL",ROOT_URL);
 
 if(isset($_GET['n']) && $_GET['n']!="" && isset($_GET['k']) && $_GET['k']!=""){
 
@@ -17,7 +21,7 @@ if(isset($_GET['n']) && $_GET['n']!="" && isset($_GET['k']) && $_GET['k']!=""){
 		$n = $_GET['n'];
 		$k = $_GET['k'];
 	}
-
+	
 	$table = "user";
 	//先查询记录
 	//addslashes($n) 因为使用了mysql_real_escape_string,所以存储在数据库中的是带转义的字符串
@@ -45,7 +49,7 @@ if(isset($_GET['n']) && $_GET['n']!="" && isset($_GET['k']) && $_GET['k']!=""){
 
 			//定义登录使用的邮箱
 			$envelope = 'dee1566@126.com';
-			$password = '密码';
+			$password = 'wshd19870912';
 			$port = 25;
 			$auth = 'login';
 			$smtp = 'smtp.126.com';
@@ -55,28 +59,29 @@ if(isset($_GET['n']) && $_GET['n']!="" && isset($_GET['k']) && $_GET['k']!=""){
 			$mailbody = '注册成功，<a href="'.$url.'" target="_blank">请点击此处激活帐号</a>';
 			postmail($auth,$port,$envelope,$password,$smtp,$rsuemail,$subject,$mailbody);
 
-			echo "<script>self.location=\"maillogin.php?m=".$rsuemail."&n=".urlencode($n)."&k=".$key."\";</script>";
+			//成功跳转至maillogin.php
+			$smarty->assign("m",$rsuemail);
+			$smarty->assign("n",urlencode($n));
+			$smarty->assign("k",$key);
+
+			$smarty->display("remail_success.html");
+
 		}else{
 		
-			//提示激活失败并跳转
-			echo "<div id=\"textBox\">22激活失败，<span id=\"second\"></span>  秒钟后跳转至注册页...</div>";
-			echo "<script src=\"templets/js/showTime.js\"></script>";			
-			echo "<script>var href='register.php';showTime(href);</script>";
+			//激活失败，返回register.php
+			$smarty->display("email_wrong.html");
 		}
 		
 
 	}else{
 	
-		//提示激活失败并跳转
-		echo "<div id=\"textBox\">12激活失败，<span id=\"second\"></span>  秒钟后跳转至注册页...</div>";
-		echo "<script src=\"templets/js/showTime.js\"></script>";			
-		echo "<script>var href='register.php';showTime(href);</script>";
+		//激活失败，返回register.php
+		$smarty->display("email_wrong.html");
 	}
 }else{
 
-	echo "<div id=\"textBox\">参数错误，请重新注册，<span id=\"second\"></span>  秒钟后跳转至注册页...</div>";
-	echo "<script src=\"templets/js/showTime.js\"></script>";			
-	echo "<script>var href='register.php';showTime(href);</script>";
+	//参数错误，返回register.php
+	$smarty->display("reactivation_wrong.html");
 
 }
 ?>

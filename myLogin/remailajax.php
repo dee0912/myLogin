@@ -26,7 +26,7 @@ if(isset($_POST['n']) && $_POST['n']!="" && isset($_POST['k']) && $_POST['k']!="
 
 	//定义登录使用的邮箱
 	$envelope = 'dee1566@126.com';
-	$password = '密码';
+	$password = 'wshd19870912';
 	$port = 25;
 	$auth = 'login';
 	$smtp = 'smtp.126.com';
